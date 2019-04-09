@@ -14,6 +14,8 @@
 		A4BFC637225C3FFB00E98BA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4BFC635225C3FFB00E98BA1 /* LaunchScreen.storyboard */; };
 		A4BFC63F225C42A000E98BA1 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC63E225C42A000E98BA1 /* BaseTabBarController.swift */; };
 		A4BFC642225C499A00E98BA1 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC641225C499A00E98BA1 /* SearchController.swift */; };
+		A4BFC645225C4C7100E98BA1 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC644225C4C7100E98BA1 /* SearchCell.swift */; };
+		A4BFC64A225C519C00E98BA1 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC649225C519B00E98BA1 /* UIView+Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A4BFC638225C3FFB00E98BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4BFC63E225C42A000E98BA1 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		A4BFC641225C499A00E98BA1 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		A4BFC644225C4C7100E98BA1 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		A4BFC649225C519B00E98BA1 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				A4BFC62C225C3FF900E98BA1 /* AppDelegate.swift */,
+				A4BFC643225C4C5300E98BA1 /* Views */,
 				A4BFC640225C497600E98BA1 /* Controllers */,
+				A4BFC648225C4E7000E98BA1 /* Extensions */,
 				A4BFC62E225C3FF900E98BA1 /* ViewController.swift */,
 				A4BFC630225C3FF900E98BA1 /* Main.storyboard */,
 				A4BFC633225C3FFB00E98BA1 /* Assets.xcassets */,
@@ -72,10 +78,26 @@
 		A4BFC640225C497600E98BA1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A4BFC63E225C42A000E98BA1 /* BaseTabBarController.swift */,
 				A4BFC641225C499A00E98BA1 /* SearchController.swift */,
+				A4BFC63E225C42A000E98BA1 /* BaseTabBarController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A4BFC643225C4C5300E98BA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4BFC644225C4C7100E98BA1 /* SearchCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4BFC648225C4E7000E98BA1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4BFC649225C519B00E98BA1 /* UIView+Layout.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4BFC62F225C3FF900E98BA1 /* ViewController.swift in Sources */,
+				A4BFC645225C4C7100E98BA1 /* SearchCell.swift in Sources */,
+				A4BFC64A225C519C00E98BA1 /* UIView+Layout.swift in Sources */,
 				A4BFC62D225C3FF900E98BA1 /* AppDelegate.swift in Sources */,
 				A4BFC63F225C42A000E98BA1 /* BaseTabBarController.swift in Sources */,
 				A4BFC642225C499A00E98BA1 /* SearchController.swift in Sources */,
