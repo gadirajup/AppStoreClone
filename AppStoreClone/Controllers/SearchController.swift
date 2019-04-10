@@ -11,7 +11,7 @@ import UIKit
 class SearchController: UICollectionViewController {
     
     // Properties
-    
+    fileprivate var appResults = [Result]()
     fileprivate let cellId = "cell"
     
     // Init
@@ -28,6 +28,7 @@ class SearchController: UICollectionViewController {
         super.viewDidLoad()
         
         setupCollectionView()
+        setupData()
     }
     
     // Setup
@@ -35,6 +36,13 @@ class SearchController: UICollectionViewController {
     fileprivate func setupCollectionView() {
         collectionView.backgroundColor = .white
         collectionView.register(SearchCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    fileprivate func setupData() {
+        Network.shared.fetchApp { results in
+            self.appResults = results
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -45,12 +53,15 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchCell
-        cell.nameLabel.text = "\(indexPath.row)"
+        let appResult = appResults[indexPath.item]
+        cell.nameLabel.text = appResult.trackName
+        cell.categoryLabel.text = appResult.primaryGenreName
+        cell.ratingsLabel.text = "\(appResult.averageUserRating ?? 0)"
         return cell
     }
     
