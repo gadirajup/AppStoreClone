@@ -11,8 +11,9 @@ import Foundation
 class Network {
     static let shared = Network()
     
-    func fetchAppSearchData(completion: @escaping (Result<[SearchResult], Error>) -> ()) {
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+    func fetchAppSearchData(searchTerm: String, completion: @escaping (Result<[SearchResult], Error>) -> ()) {
+        let searchTerm = searchTerm.replacingOccurrences(of: " ", with: "+")
+        let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
         guard let url = URL(string: urlString) else {return}
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -21,7 +22,7 @@ class Network {
                 completion(.failure(error))
                 return
             }
-
+            
             guard let data = data else { return }
 
             let decoder = JSONDecoder()

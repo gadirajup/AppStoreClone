@@ -13,6 +13,17 @@ class SearchController: UICollectionViewController {
     // Properties
     fileprivate var appResults = [SearchResult]()
     fileprivate let cellId = "cell"
+    fileprivate var timer: Timer?
+    
+    // UI Elements
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate let enterSearchTermLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Wanna search for something?"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 20)
+        return label
+    }()
     
     // Init
     
@@ -28,7 +39,9 @@ class SearchController: UICollectionViewController {
         super.viewDidLoad()
         
         setupCollectionView()
-        setupData()
+        setupSearchBar()
+        setupLabel()
+        //setupData()
     }
     
     // Setup
@@ -38,8 +51,27 @@ class SearchController: UICollectionViewController {
         collectionView.register(SearchCell.self, forCellWithReuseIdentifier: cellId)
     }
     
+    fileprivate func setupSearchBar() {
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+    }
+    
+    fileprivate func setupLabel() {
+        view.addSubview(enterSearchTermLabel)
+        enterSearchTermLabel.fillSuperview()
+    }
+    
     fileprivate func setupData() {
-        Network.shared.fetchAppSearchData { [weak self] (result) in
+        fetchData(withSearchTerm: "instagram")
+    }
+    
+    // Logic
+    
+    fileprivate func fetchData(withSearchTerm searchTerm: String) {
+        Network.shared.fetchAppSearchData(searchTerm: searchTerm) { [weak self] (result) in
             switch result {
             case .failure(let error):
                 print("Failed to setup Data", error.localizedDescription)
@@ -58,6 +90,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        enterSearchTermLabel.isHidden = appResults.count != 0 ? true : false
         return appResults.count
     }
     
@@ -70,5 +103,14 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 350)
+    }
+}
+
+extension SearchController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false) { (_) in
+            self.fetchData(withSearchTerm: searchText)
+        }
     }
 }
