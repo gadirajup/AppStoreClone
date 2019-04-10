@@ -11,13 +11,14 @@ import Foundation
 class Network {
     static let shared = Network()
     
-    func fetchApp( completion: @escaping ([Result]) -> () ) {
+    func fetchApp( completion: @escaping ([Result], Error?) -> () ) {
         let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
         guard let url = URL(string: urlString) else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Failed to fetch data from url", error.localizedDescription)
+                completion([], error)
                 return
             }
             
@@ -27,9 +28,13 @@ class Network {
             
             do {
                 let searchResults = try decoder.decode(SearchResult.self, from: data)
-                completion(searchResults.results)
+                
+                DispatchQueue.main.async {
+                    completion(searchResults.results, nil)
+                }
             } catch {
                 print("Failed to decode Data", error.localizedDescription)
+                completion([], error)
             }
         }.resume()
     }

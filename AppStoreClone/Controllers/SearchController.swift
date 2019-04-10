@@ -39,9 +39,10 @@ class SearchController: UICollectionViewController {
     }
     
     fileprivate func setupData() {
-        Network.shared.fetchApp { results in
-            self.appResults = results
-            self.collectionView.reloadData()
+        Network.shared.fetchApp { [weak self] (results, error) in
+            guard error == nil else { return }
+            self?.appResults = results
+            self?.collectionView.reloadData()
         }
     }
 }
