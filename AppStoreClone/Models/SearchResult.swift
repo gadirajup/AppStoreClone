@@ -8,13 +8,15 @@
 
 import Foundation
 
-struct SearchResult: Codable {
+struct SearchResults: Codable {
     let resultCount: Int
-    let results: [Result]
+    let results: [SearchResult]
 }
 
-struct Result: Codable {
+struct SearchResult: Codable {
     let trackName: String?
     let primaryGenreName: String?
     let averageUserRating: Double?
+    let screenshotUrls: [String]?
+    let artworkUrl100: String?
 }

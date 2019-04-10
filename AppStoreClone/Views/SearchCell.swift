@@ -12,6 +12,11 @@ class SearchCell: UICollectionViewCell {
     
     // Properties
     
+    var appResult: SearchResult! {
+        didSet {
+            setupCell()
+        }
+    }
     
     // UI Elements
     
@@ -21,6 +26,7 @@ class SearchCell: UICollectionViewCell {
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
         iv.heightAnchor.constraint(equalTo: iv.widthAnchor).isActive = true
         iv.layer.cornerRadius = 14
+        iv.clipsToBounds = true
         return iv
     }()
     
@@ -101,6 +107,30 @@ class SearchCell: UICollectionViewCell {
     func setupScreenShotImageView() -> UIImageView {
         let iv = UIImageView()
         iv.backgroundColor = .blue
+        iv.layer.cornerRadius = 14
+        iv.clipsToBounds = true
+        iv.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        iv.layer.borderWidth = 0.5
+        iv.contentMode = .scaleAspectFill
         return iv
+    }
+    
+    func setupCell() {
+        nameLabel.text = appResult.trackName
+        categoryLabel.text = appResult.primaryGenreName
+        ratingsLabel.text = "\(appResult.averageUserRating ?? 0)"
+        appIconImageView.load(imageWithUrl: appResult.artworkUrl100!)
+        
+        if appResult.screenshotUrls?[0] != nil {
+            screenShot1ImageView.load(imageWithUrl: appResult.screenshotUrls![0])
+        }
+        
+        if appResult.screenshotUrls?[1] != nil {
+            screenShot2ImageView.load(imageWithUrl: appResult.screenshotUrls![1])
+        }
+        
+        if appResult.screenshotUrls!.count > 2 {
+            screenShot3ImageView.load(imageWithUrl: appResult.screenshotUrls![2])
+        }
     }
 }

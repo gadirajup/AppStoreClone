@@ -18,6 +18,7 @@
 		A4BFC64A225C519C00E98BA1 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC649225C519B00E98BA1 /* UIView+Layout.swift */; };
 		A4BFC64F225D770A00E98BA1 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC64E225D770A00E98BA1 /* SearchResult.swift */; };
 		A4BFC652225D7C8F00E98BA1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC651225D7C8F00E98BA1 /* Network.swift */; };
+		A4BFC654225D87EA00E98BA1 /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC653225D87EA00E98BA1 /* UIImageView+LoadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A4BFC649225C519B00E98BA1 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		A4BFC64E225D770A00E98BA1 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		A4BFC651225D7C8F00E98BA1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A4BFC653225D87EA00E98BA1 /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BFC649225C519B00E98BA1 /* UIView+Layout.swift */,
+				A4BFC653225D87EA00E98BA1 /* UIImageView+LoadImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4BFC62F225C3FF900E98BA1 /* ViewController.swift in Sources */,
+				A4BFC654225D87EA00E98BA1 /* UIImageView+LoadImage.swift in Sources */,
 				A4BFC64F225D770A00E98BA1 /* SearchResult.swift in Sources */,
 				A4BFC652225D7C8F00E98BA1 /* Network.swift in Sources */,
 				A4BFC645225C4C7100E98BA1 /* SearchCell.swift in Sources */,

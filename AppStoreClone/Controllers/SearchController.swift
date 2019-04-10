@@ -11,7 +11,7 @@ import UIKit
 class SearchController: UICollectionViewController {
     
     // Properties
-    fileprivate var appResults = [Result]()
+    fileprivate var appResults = [SearchResult]()
     fileprivate let cellId = "cell"
     
     // Init
@@ -39,10 +39,14 @@ class SearchController: UICollectionViewController {
     }
     
     fileprivate func setupData() {
-        Network.shared.fetchApp { [weak self] (results, error) in
-            guard error == nil else { return }
-            self?.appResults = results
-            self?.collectionView.reloadData()
+        Network.shared.fetchAppSearchData { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print("Failed to setup Data", error.localizedDescription)
+            case .success(let results):
+                self?.appResults = results
+                self?.collectionView.reloadData()
+            }
         }
     }
 }
@@ -60,9 +64,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchCell
         let appResult = appResults[indexPath.item]
-        cell.nameLabel.text = appResult.trackName
-        cell.categoryLabel.text = appResult.primaryGenreName
-        cell.ratingsLabel.text = "\(appResult.averageUserRating ?? 0)"
+        cell.appResult = appResult
         return cell
     }
     
