@@ -63,6 +63,20 @@ class SearchCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // Setup
+    
+    fileprivate func setupView() {
+        setupStackViews()
+    }
+    
+    fileprivate func setupStackViews() {
         let labelsStackView = UIStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel])
         labelsStackView.axis = .vertical
         
@@ -82,10 +96,6 @@ class SearchCell: UICollectionViewCell {
         
         addSubview(overallStackView)
         overallStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 0, right: 16))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setupScreenShotImageView() -> UIImageView {
