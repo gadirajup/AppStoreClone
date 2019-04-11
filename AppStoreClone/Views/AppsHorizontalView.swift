@@ -30,11 +30,13 @@ class AppsHorizontalView: UIView {
     }
     
     fileprivate func setupCollectionView() {
-        collectionView = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = UICollectionView(frame: frame, collectionViewLayout: SnappingCollectionFlowLayout())
         collectionView.backgroundColor = .white
         collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+        collectionView.decelerationRate = UICollectionView.DecelerationRate.fast
         
         addSubview(collectionView)
         collectionView.fillSuperview(padding: .init(top: 5, left: 0, bottom: 5, right: 0))
@@ -57,11 +59,7 @@ extension AppsHorizontalView: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: frame.width - 50, height: (frame.height - 20) / 3)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 16, bottom: 0, right: 16)
+        return .init(width: frame.width - 48, height: (frame.height - 20) / 3)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

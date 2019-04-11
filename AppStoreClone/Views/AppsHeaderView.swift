@@ -18,11 +18,13 @@ class AppsHeaderView: UICollectionReusableView {
     // UI Elements
     
     lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: self.frame, collectionViewLayout: UICollectionViewFlowLayout())
+        let cv = UICollectionView(frame: self.frame, collectionViewLayout: SnappingCollectionFlowLayout())
         cv.backgroundColor = .white
         cv.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         cv.delegate = self
         cv.dataSource = self
+        cv.decelerationRate = UICollectionView.DecelerationRate.fast
+        cv.contentInset = .init(top: 0, left: 12, bottom: 0, right: 12)
         cv.showsHorizontalScrollIndicator = false
         if let layout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -73,10 +75,6 @@ extension AppsHeaderView: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: frame.width - 32, height: frame.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 12, bottom: 0, right: 12)
+        return .init(width: frame.width - 48, height: frame.height)
     }
 }
