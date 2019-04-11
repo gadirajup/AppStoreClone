@@ -19,6 +19,17 @@
 		A4BFC64F225D770A00E98BA1 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC64E225D770A00E98BA1 /* SearchResult.swift */; };
 		A4BFC652225D7C8F00E98BA1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC651225D7C8F00E98BA1 /* Network.swift */; };
 		A4BFC654225D87EA00E98BA1 /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC653225D87EA00E98BA1 /* UIImageView+LoadImage.swift */; };
+		A4BFC656225DB74800E98BA1 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC655225DB74800E98BA1 /* AppController.swift */; };
+		A4BFC658225DBA2300E98BA1 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC657225DBA2300E98BA1 /* AppsGroupCell.swift */; };
+		A4BFC65A225DBB6300E98BA1 /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC659225DBB6300E98BA1 /* UILabel+Init.swift */; };
+		A4BFC65C225DBE2E00E98BA1 /* AppsHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC65B225DBE2E00E98BA1 /* AppsHorizontalView.swift */; };
+		A4BFC667225EFF9E00E98BA1 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC666225EFF9E00E98BA1 /* AppRowCell.swift */; };
+		A4BFC669225F009000E98BA1 /* UIImageView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC668225F009000E98BA1 /* UIImageView+Init.swift */; };
+		A4BFC66B225F01BC00E98BA1 /* UIButton+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC66A225F01BC00E98BA1 /* UIButton+Init.swift */; };
+		A4BFC66D225F0DAB00E98BA1 /* AppsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC66C225F0DAB00E98BA1 /* AppsHeaderView.swift */; };
+		A4BFC66F225F141100E98BA1 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC66E225F141100E98BA1 /* AppsHeaderCell.swift */; };
+		A4BFC671225FBB4000E98BA1 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC670225FBB4000E98BA1 /* AppGroup.swift */; };
+		A4BFC673225FCB7500E98BA1 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFC672225FCB7500E98BA1 /* AppHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +47,17 @@
 		A4BFC64E225D770A00E98BA1 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		A4BFC651225D7C8F00E98BA1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A4BFC653225D87EA00E98BA1 /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
+		A4BFC655225DB74800E98BA1 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		A4BFC657225DBA2300E98BA1 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
+		A4BFC659225DBB6300E98BA1 /* UILabel+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Init.swift"; sourceTree = "<group>"; };
+		A4BFC65B225DBE2E00E98BA1 /* AppsHorizontalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalView.swift; sourceTree = "<group>"; };
+		A4BFC666225EFF9E00E98BA1 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
+		A4BFC668225F009000E98BA1 /* UIImageView+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Init.swift"; sourceTree = "<group>"; };
+		A4BFC66A225F01BC00E98BA1 /* UIButton+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Init.swift"; sourceTree = "<group>"; };
+		A4BFC66C225F0DAB00E98BA1 /* AppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderView.swift; sourceTree = "<group>"; };
+		A4BFC66E225F141100E98BA1 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
+		A4BFC670225FBB4000E98BA1 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		A4BFC672225FCB7500E98BA1 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +90,12 @@
 		A4BFC62B225C3FF900E98BA1 /* AppStoreClone */ = {
 			isa = PBXGroup;
 			children = (
-				A4BFC650225D7C6800E98BA1 /* Services */,
-				A4BFC64D225D76FA00E98BA1 /* Models */,
 				A4BFC62C225C3FF900E98BA1 /* AppDelegate.swift */,
+				A4BFC64D225D76FA00E98BA1 /* Models */,
 				A4BFC643225C4C5300E98BA1 /* Views */,
 				A4BFC640225C497600E98BA1 /* Controllers */,
 				A4BFC648225C4E7000E98BA1 /* Extensions */,
+				A4BFC650225D7C6800E98BA1 /* Services */,
 				A4BFC62E225C3FF900E98BA1 /* ViewController.swift */,
 				A4BFC630225C3FF900E98BA1 /* Main.storyboard */,
 				A4BFC633225C3FFB00E98BA1 /* Assets.xcassets */,
@@ -86,6 +108,7 @@
 		A4BFC640225C497600E98BA1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4BFC655225DB74800E98BA1 /* AppController.swift */,
 				A4BFC641225C499A00E98BA1 /* SearchController.swift */,
 				A4BFC63E225C42A000E98BA1 /* BaseTabBarController.swift */,
 			);
@@ -96,6 +119,11 @@
 			isa = PBXGroup;
 			children = (
 				A4BFC644225C4C7100E98BA1 /* SearchCell.swift */,
+				A4BFC657225DBA2300E98BA1 /* AppsGroupCell.swift */,
+				A4BFC65B225DBE2E00E98BA1 /* AppsHorizontalView.swift */,
+				A4BFC666225EFF9E00E98BA1 /* AppRowCell.swift */,
+				A4BFC66C225F0DAB00E98BA1 /* AppsHeaderView.swift */,
+				A4BFC66E225F141100E98BA1 /* AppsHeaderCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,7 +132,10 @@
 			isa = PBXGroup;
 			children = (
 				A4BFC649225C519B00E98BA1 /* UIView+Layout.swift */,
+				A4BFC668225F009000E98BA1 /* UIImageView+Init.swift */,
 				A4BFC653225D87EA00E98BA1 /* UIImageView+LoadImage.swift */,
+				A4BFC659225DBB6300E98BA1 /* UILabel+Init.swift */,
+				A4BFC66A225F01BC00E98BA1 /* UIButton+Init.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -113,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				A4BFC64E225D770A00E98BA1 /* SearchResult.swift */,
+				A4BFC670225FBB4000E98BA1 /* AppGroup.swift */,
+				A4BFC672225FCB7500E98BA1 /* AppHeader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,13 +230,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4BFC62F225C3FF900E98BA1 /* ViewController.swift in Sources */,
+				A4BFC656225DB74800E98BA1 /* AppController.swift in Sources */,
+				A4BFC65A225DBB6300E98BA1 /* UILabel+Init.swift in Sources */,
+				A4BFC671225FBB4000E98BA1 /* AppGroup.swift in Sources */,
+				A4BFC658225DBA2300E98BA1 /* AppsGroupCell.swift in Sources */,
+				A4BFC66F225F141100E98BA1 /* AppsHeaderCell.swift in Sources */,
 				A4BFC654225D87EA00E98BA1 /* UIImageView+LoadImage.swift in Sources */,
 				A4BFC64F225D770A00E98BA1 /* SearchResult.swift in Sources */,
+				A4BFC667225EFF9E00E98BA1 /* AppRowCell.swift in Sources */,
+				A4BFC66B225F01BC00E98BA1 /* UIButton+Init.swift in Sources */,
 				A4BFC652225D7C8F00E98BA1 /* Network.swift in Sources */,
+				A4BFC66D225F0DAB00E98BA1 /* AppsHeaderView.swift in Sources */,
+				A4BFC673225FCB7500E98BA1 /* AppHeader.swift in Sources */,
 				A4BFC645225C4C7100E98BA1 /* SearchCell.swift in Sources */,
 				A4BFC64A225C519C00E98BA1 /* UIView+Layout.swift in Sources */,
+				A4BFC669225F009000E98BA1 /* UIImageView+Init.swift in Sources */,
 				A4BFC62D225C3FF900E98BA1 /* AppDelegate.swift in Sources */,
 				A4BFC63F225C42A000E98BA1 /* BaseTabBarController.swift in Sources */,
+				A4BFC65C225DBE2E00E98BA1 /* AppsHorizontalView.swift in Sources */,
 				A4BFC642225C499A00E98BA1 /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
