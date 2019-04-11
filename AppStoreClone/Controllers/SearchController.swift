@@ -76,7 +76,7 @@ class SearchController: UICollectionViewController {
             case .failure(let error):
                 print("Failed to setup Data", error.localizedDescription)
             case .success(let results):
-                self?.appResults = results
+                self?.appResults = results.results
                 self?.collectionView.reloadData()
             }
         }

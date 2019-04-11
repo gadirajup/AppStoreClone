@@ -11,34 +11,10 @@ import Foundation
 class Network {
     static let shared = Network()
     
-    func fetchAppSearchData(searchTerm: String, completion: @escaping (Result<[SearchResult], Error>) -> ()) {
+    func fetchAppSearchData(searchTerm: String, completion: @escaping (Result<SearchResults, Error>) -> ()) {
         let searchTerm = searchTerm.replacingOccurrences(of: " ", with: "+")
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
-        guard let url = URL(string: urlString) else {return}
-
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Failed to fetch data from url", error.localizedDescription)
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else { return }
-
-            let decoder = JSONDecoder()
-
-            do {
-                let searchResults = try decoder.decode(SearchResults.self, from: data)
-
-                DispatchQueue.main.async {
-                    completion(.success(searchResults.results))
-                }
-
-            } catch {
-                print("Failed to decode Data", error.localizedDescription)
-                completion(.failure(error))
-            }
-        }.resume()
+        fetchJSON(urlString: urlString, completion: completion)
     }
     
     func fetchNewAppsWeLove(completion: @escaping (Result<AppGroup, Error>) -> () ) {
@@ -57,31 +33,16 @@ class Network {
     }
     
     func fetchAppGroup(urlString: String, completion: @escaping (Result<AppGroup, Error>) -> ()) {
-        guard let url = URL(string: urlString) else {return}
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Error fetching top apps", error.localizedDescription)
-                completion(.failure(error))
-            }
-            
-            guard let data = data else {return}
-            
-            print(data)
-            do {
-                let appGroup = try JSONDecoder().decode(AppGroup.self, from: data)
-                completion(.success(appGroup))
-            } catch {
-                print("Failed to decode app group", error.localizedDescription)
-                completion(.failure(error))
-            }
-            
-        }.resume()
+        fetchJSON(urlString: urlString, completion: completion)
     }
     
     func fetchHeaderData(completion: @escaping (Result<[AppHeader], Error>) -> () ) {
         let urlString = "https://api.letsbuildthatapp.com/appstore/social"
-        guard let url = URL(string: urlString) else { return }
-        
+        fetchJSON(urlString: urlString, completion: completion)
+    }
+    
+    func fetchJSON<T: Decodable>(urlString: String, completion: @escaping (Result<T, Error>) -> () ) {
+        guard let url = URL(string: urlString) else {return}
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Failed to fetch header data", error.localizedDescription)
@@ -90,7 +51,7 @@ class Network {
             guard let data = data else { return }
             print("Header Data", data)
             do {
-                let results = try JSONDecoder().decode([AppHeader].self, from: data)
+                let results = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(results))
             } catch {
                 print("Failed to decode header data", error.localizedDescription)
