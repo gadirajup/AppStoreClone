@@ -11,6 +11,9 @@ import UIKit
 class AppsHorizontalView: UIView {
     
     fileprivate let cellId = "nestedCellId"
+    
+    var didSelectHandler: ((FeedResult?) -> ())?
+    
     var appGroup : AppGroup? {
         didSet {
             collectionView.reloadData()
@@ -68,5 +71,10 @@ extension AppsHorizontalView: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let app = appGroup?.feed.results[indexPath.item]
+        didSelectHandler?(app)
     }
 }

@@ -121,6 +121,11 @@ extension AppController: UICollectionViewDelegateFlowLayout {
         let group = groups[indexPath.item]
         cell.titleLabel.text = group.feed.title
         cell.horizontalCollectionView.appGroup = group
+        cell.horizontalCollectionView.didSelectHandler = { [weak self] app in
+            let redViewController = UIViewController()
+            redViewController.view.backgroundColor = .red
+            self?.navigationController?.pushViewController(redViewController, animated: true)
+        }
         return cell
     }
     
@@ -136,5 +141,5 @@ extension AppController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: view.frame.width, height: headerHeight)
-    }    
+    }
 }
